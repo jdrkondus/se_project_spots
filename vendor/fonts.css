@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../vendor/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Istok_Web";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../vendor/fonts/Istok_Web/IstokWeb-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../vendor/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+}
