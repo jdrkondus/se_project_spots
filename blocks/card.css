@@ -1,0 +1,18 @@
+.card {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.card__image {
+  height: 413px;
+  /* width: 413px; */
+}
+
+.card__content {
+}
+
+.card__title {
+}
+
+.card__like-button {
+}

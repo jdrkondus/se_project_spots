@@ -1,4 +1,21 @@
 .page {
   background-color: #fcf5e5;
   font-family: "Poppins, Arial, Helvetica, Sans-serif";
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Desktop View */
+@media screen (min-width: 1320px) and (max-width: 1440px) {
+}
+/* Tablet View */
+@media screen (min-width: 630px) and (max-width: 1319px) {
+}
+/* Mobile View */
+@media screen (min-width: 320px) and (max-width: 629px) {
 }
