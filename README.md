@@ -9,4 +9,6 @@ This is a webpage that will be for photosharing. The user will be able to have a
 - HTML
 - CSS
 
-#
+# Link to github
+
+https://github.com/jdrkondus/se_project_spots/deployments/github-pages
