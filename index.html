@@ -129,11 +129,15 @@
       </main>
       <footer class="footer">2023 © Spots</footer>
       <!-- Edit Profile Modal -->
-      <div class="modal">
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <div class="modal__row">
             <h2 class="modal__title">Edit Profile</h2>
-            <button type="button" class="modal__exit-button">
+            <button
+              type="button"
+              class="modal__exit-button"
+              id="profile__exit-button"
+            >
               <img src="./images/exit_icon.svg" alt="exit_icon" />
             </button>
           </div>
@@ -150,7 +154,7 @@
               />
             </label>
             <label for="modal__input_description" class="modal__label">
-              >Description
+              Description
               <input
                 type="text"
                 class="modal__input"
@@ -165,11 +169,15 @@
         </div>
       </div>
       <!-- New Post Modal -->
-      <div class="modal">
+      <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <div class="modal__row">
             <h2 class="modal__title">New Post</h2>
-            <button type="button" class="modal__exit-button">
+            <button
+              type="button"
+              class="modal__exit-button"
+              id="new-post__exit-button"
+            >
               <img src="./images/exit_icon.svg" alt="exit_icon" />
             </button>
           </div>
@@ -201,5 +209,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
