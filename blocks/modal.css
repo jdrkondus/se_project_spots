@@ -1,0 +1,100 @@
+.modal {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  padding: 32px 50px;
+  border-radius: 8px;
+  margin: auto;
+  max-width: 730px;
+  width: 100%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 16px;
+  color: rgb(33, 33, 33);
+}
+
+.modal__row {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+}
+
+.modal__title {
+  font-size: 32px;
+}
+
+.modal__exit-button {
+  background-color: transparent;
+  color: rgb(33, 33, 33);
+  opacity: 40%;
+  border: none;
+  border-style: none;
+}
+
+.modal__exit-button:hover {
+  color: rgb(33, 33, 33);
+  opacity: 100%;
+}
+
+.modal__label {
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__input {
+  width: 100%;
+  padding: 16px 12px;
+  margin-bottom: 32px;
+  color: rgba(33, 33, 33, 0.3);
+  border-radius: 8px;
+  border-color: rgba(33, 33, 33, 0.3);
+}
+
+.modal__input:hover {
+  border-color: rgba(33, 33, 33, 1);
+}
+
+.modal__input:focus {
+  color: rgb(33, 33, 33);
+}
+
+.modal__save-button {
+  background-color: rgb(33, 33, 33);
+  padding: 18px 32px;
+  border-radius: 8px;
+  color: rgb(252, 245, 229);
+}
+
+.modal__save-button:hover {
+  background-color: rgba(33, 33, 33, 0.8);
+}
+
+@media screen and (max-width: 300px) {
+  .modal__title {
+    font-size: 20px;
+  }
+  .modal__save-button {
+    width: 100%;
+  }
+}
