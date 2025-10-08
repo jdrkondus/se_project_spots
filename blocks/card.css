@@ -9,6 +9,7 @@
   display: block;
   height: 413px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .card__content {
