@@ -22,7 +22,7 @@
   justify-content: center;
   position: relative;
   background-color: rgb(255, 255, 255);
-  padding: 32px 50px;
+  padding: 32px 18px;
   border-radius: 8px;
   margin: auto;
   max-width: 730px;
@@ -43,7 +43,7 @@
 
 .modal__title {
   font-size: 32px;
-  margin: none;
+  margin: 0;
 }
 
 .modal__exit-button {
