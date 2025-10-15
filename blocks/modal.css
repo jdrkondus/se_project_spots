@@ -22,7 +22,7 @@
   justify-content: center;
   position: relative;
   background-color: rgb(255, 255, 255);
-  padding: 32px 18px;
+  padding: 32px 50px;
   border-radius: 8px;
   margin: auto;
   max-width: 730px;
@@ -39,6 +39,7 @@
   flex-direction: row;
   position: relative;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .modal__title {
@@ -102,5 +103,9 @@
   }
   .modal__save-button {
     width: 100%;
+  }
+
+  .modal__container {
+    padding: 32px 18px;
   }
 }
