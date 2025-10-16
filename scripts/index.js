@@ -33,14 +33,26 @@ const initialCards = [
 const profileEditMdl = document.querySelector("#edit-profile-modal");
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileExitBtn = profileEditMdl.querySelector("#profile__exit-button");
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
+const profileNameInput = document.querySelector("#modal__input_name");
+const profileDescriptionInput = document.querySelector(
+  "#modal__input_description"
+);
+const profileEditForm = document.querySelector("#edit-profile-form");
 const profileNewPostMdl = document.querySelector("#new-post-modal");
 const profileAddBtn = document.querySelector(".profile__add-button");
 const profileNewPostExitBtn = profileNewPostMdl.querySelector(
   "#new-post__exit-button"
 );
+const profileAddInput = document.querySelector("#modal__input_caption");
+const profileLinkInput = document.querySelector("#modal__input_link");
+const profileAddForm = document.querySelector("#profile-add-form");
 
 profileEditBtn.addEventListener("click", function () {
   profileEditMdl.classList.add("modal_is-opened");
+  profileNameInput.value = profileNameEl.textContent;
+  profileDescriptionInput.value = profileDescriptionEl.textContent;
 });
 
 profileExitBtn.addEventListener("click", function () {
@@ -54,8 +66,18 @@ profileAddBtn.addEventListener("click", function () {
 profileNewPostExitBtn.addEventListener("click", function () {
   profileNewPostMdl.classList.remove("modal_is-opened");
 });
+profileEditForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  profileNameEl.textContent = profileNameInput.value;
+  profileDescriptionEl.textContent = profileDescriptionInput.value;
+});
 
 initialCards.forEach(function (card) {
   console.log(card.name);
   console.log(card.link);
+});
+profileAddForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  profileAddEl.textContent = profileAddInput.value;
+  profileLinkEl.textContent = profileLinkInput.value;
 });
