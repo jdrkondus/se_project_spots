@@ -70,6 +70,8 @@ profileEditForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   profileNameEl.textContent = profileNameInput.value;
   profileDescriptionEl.textContent = profileDescriptionInput.value;
+
+  profileEditMdl.classList.remove("modal_is-opened");
 });
 
 initialCards.forEach(function (card) {
@@ -78,6 +80,8 @@ initialCards.forEach(function (card) {
 });
 profileAddForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  profileAddEl.textContent = profileAddInput.value;
-  profileLinkEl.textContent = profileLinkInput.value;
+  // profileAddEl.textContent = profileAddInput.value;
+  // profileLinkEl.textContent = profileLinkInput.value;
+
+  profileNewPostMdl.classList.remove("modal_is-opened");
 });
