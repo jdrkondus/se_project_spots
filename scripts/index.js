@@ -49,29 +49,37 @@ const profileAddInput = document.querySelector("#modal__input_caption");
 const profileLinkInput = document.querySelector("#modal__input_link");
 const profileAddForm = document.querySelector("#profile-add-form");
 
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 profileEditBtn.addEventListener("click", function () {
-  profileEditMdl.classList.add("modal_is-opened");
+  openModal(profileEditMdl);
   profileNameInput.value = profileNameEl.textContent;
   profileDescriptionInput.value = profileDescriptionEl.textContent;
 });
 
 profileExitBtn.addEventListener("click", function () {
-  profileEditMdl.classList.remove("modal_is-opened");
+  closeModal(profileEditMdl);
 });
 
 profileAddBtn.addEventListener("click", function () {
-  profileNewPostMdl.classList.add("modal_is-opened");
+  openModal(profileNewPostMdl);
 });
 
 profileNewPostExitBtn.addEventListener("click", function () {
-  profileNewPostMdl.classList.remove("modal_is-opened");
+  closeModal(profileNewPostMdl);
 });
 profileEditForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   profileNameEl.textContent = profileNameInput.value;
   profileDescriptionEl.textContent = profileDescriptionInput.value;
 
-  profileEditMdl.classList.remove("modal_is-opened");
+  closeModal(profileEditMdl);
 });
 
 initialCards.forEach(function (card) {
@@ -80,8 +88,6 @@ initialCards.forEach(function (card) {
 });
 profileAddForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  // profileAddEl.textContent = profileAddInput.value;
-  // profileLinkEl.textContent = profileLinkInput.value;
 
-  profileNewPostMdl.classList.remove("modal_is-opened");
+  closeModal(profileNewPostMdl);
 });
