@@ -48,6 +48,11 @@ const profileNewPostExitBtn = profileNewPostMdl.querySelector(
 const profileAddInput = document.querySelector("#modal__input_caption");
 const profileLinkInput = document.querySelector("#modal__input_link");
 const profileAddForm = document.querySelector("#profile-add-form");
+const cardTemplate = document
+  .querySelector("#card__template")
+  .content.querySelector(".card");
+
+const cardList = document.querySelector(".cards__list");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -83,11 +88,39 @@ profileEditForm.addEventListener("submit", function (evt) {
 });
 
 initialCards.forEach(function (card) {
-  console.log(card.name);
-  console.log(card.link);
+  const newCardElement = getCardElement(card);
+  cardList.prepend(newCardElement);
+  // console.log(card.name);
+  // console.log(card.link);
 });
 profileAddForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
+  const newCardElement = getCardElement({
+    name: profileAddInput.value,
+    link: profileLinkInput.value,
+  });
+  cardList.prepend(newCardElement);
+
   closeModal(profileNewPostMdl);
 });
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__image");
+
+  cardTitle.textContent = data.name;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+
+  const cardLikeBtn = cardElement.querySelector(".card__like-button");
+  cardLikeBtn.addEventListener("click", function () {
+    cardLikeBtn.classList.toggle("card__like-button-active");
+  });
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  cardDeleteBtn.addEventListener("click", function () {
+    cardDeleteBtn.closest(".card").remove();
+  });
+  return cardElement;
+}
