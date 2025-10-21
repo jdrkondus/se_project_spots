@@ -40,7 +40,18 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-            <!-- Card 1 -->
+            <!-- Dynamic Card Generator -->
+            <template id="card__template">
+              <li class="card">
+                <img src="#" alt="" class="card__image" />
+                <button type="button" class="card__delete-button"></button>
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
+            <!-- Card 1
             <li class="card">
               <img
                 src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
@@ -54,7 +65,7 @@
                 </button>
               </div>
             </li>
-            <!-- Card 2 -->
+             //card 2
             <li class="card">
               <img
                 src="./images/2-photo-by-ceiline-from-pexels.jpg"
@@ -68,7 +79,7 @@
                 </button>
               </div>
             </li>
-            <!-- Card 3 -->
+            //Card 3//
             <li class="card">
               <img
                 src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
@@ -82,7 +93,7 @@
                 </button>
               </div>
             </li>
-            <!-- Card 4 -->
+            // Card 4 //
             <li class="card">
               <img
                 src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
@@ -96,7 +107,7 @@
                 </button>
               </div>
             </li>
-            <!-- Card 5 -->
+            //  Card 5 //
             <li class="card">
               <img
                 src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
@@ -110,7 +121,7 @@
                 </button>
               </div>
             </li>
-            <!-- Card 6 -->
+            // Card 6 //
             <li class="card">
               <img
                 src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
@@ -124,6 +135,7 @@
                 </button>
               </div>
             </li>
+            -->
           </ul>
         </section>
       </main>
