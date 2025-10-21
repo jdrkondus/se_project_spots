@@ -52,16 +52,19 @@
 }
 
 .modal__exit-button {
-  background-color: transparent;
+  background-image: url(../images/exit_icon.svg);
   color: rgb(33, 33, 33);
   opacity: 40%;
   border: none;
   border-style: none;
+  width: 40px;
+  height: 40px;
 }
 
 .modal__exit-button:hover {
   color: rgb(33, 33, 33);
   opacity: 100%;
+  cursor: pointer;
 }
 
 .modal__label {
@@ -82,6 +85,7 @@
 
 .modal__input:hover {
   border-color: rgba(33, 33, 33, 1);
+  cursor: pointer;
 }
 
 .modal__input:focus {
@@ -99,6 +103,53 @@
 
 .modal__save-button:hover {
   background-color: rgba(33, 33, 33, 0.8);
+  cursor: pointer;
+}
+
+.modal__preview_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  border-radius: 8px;
+  margin: auto;
+  max-width: 80vw;
+  width: 100%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 20px;
+  color: rgb(33, 33, 33);
+}
+
+.modal__preview_img {
+  display: block;
+  border-radius: 8px;
+  max-height: 80vh;
+  max-width: 80vw;
+  width: 100%;
+}
+
+.modal__preview_caption {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.modal__preview_close {
+  position: absolute;
+  top: 0;
+  right: -53px;
+  background-image: url(../images/exit_icon._white.svg);
+  background-color: transparent;
+}
+
+.modal__preview_close:hover {
+  opacity: 40%;
 }
 
 @media screen and (max-width: 627px) {
@@ -111,5 +162,23 @@
 
   .modal__container {
     padding: 32px 18px;
+  }
+
+  .modal__preview_container {
+    border-radius: 4px;
+  }
+
+  .modal__preview_img {
+    display: flex;
+    justify-self: center;
+  }
+
+  .modal__preview_caption {
+    font-size: 16px;
+  }
+
+  .modal__preview_close {
+    right: 0;
+    top: -53px;
   }
 }
