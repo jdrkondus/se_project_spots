@@ -28,6 +28,11 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+
+  {
+    name: "Landscape",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
 ];
 
 const profileEditMdl = document.querySelector("#edit-profile-modal");
@@ -48,6 +53,12 @@ const profileNewPostExitBtn = profileNewPostMdl.querySelector(
 const profileAddInput = document.querySelector("#modal__input_caption");
 const profileLinkInput = document.querySelector("#modal__input_link");
 const profileAddForm = document.querySelector("#profile-add-form");
+
+const previewMdl = document.querySelector("#card-preview-modal");
+const previewCloseBtn = previewMdl.querySelector(".modal__preview_close");
+const previewImg = previewMdl.querySelector(".modal__preview_img");
+const previewCaption = previewMdl.querySelector(".modal__preview_caption");
+
 const cardTemplate = document
   .querySelector("#card__template")
   .content.querySelector(".card");
@@ -90,8 +101,6 @@ profileEditForm.addEventListener("submit", function (evt) {
 initialCards.forEach(function (card) {
   const newCardElement = getCardElement(card);
   cardList.prepend(newCardElement);
-  // console.log(card.name);
-  // console.log(card.link);
 });
 profileAddForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
@@ -121,6 +130,17 @@ function getCardElement(data) {
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
   cardDeleteBtn.addEventListener("click", function () {
     cardDeleteBtn.closest(".card").remove();
+    cardElement = null;
+  });
+
+  cardImage.addEventListener("click", function () {
+    previewImg.src = data.link;
+    previewCaption.alt = data.name;
+    openModal(previewMdl);
+  });
+
+  previewCloseBtn.addEventListener("click", function () {
+    closeModal(previewMdl);
   });
   return cardElement;
 }

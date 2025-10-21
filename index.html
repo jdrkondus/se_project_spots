@@ -51,91 +51,6 @@
                 </div>
               </li>
             </template>
-            <!-- Card 1
-            <li class="card">
-              <img
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="snowy hillside village through a window"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Val Thorens</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-             //card 2
-            <li class="card">
-              <img
-                src="./images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="Restaurant Terrace"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Restaurant Terrace</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-            //Card 3//
-            <li class="card">
-              <img
-                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="An outdoor cafe"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">An outdoor cafe</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-            // Card 4 //
-            <li class="card">
-              <img
-                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="A very long bridge, over the forest"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">A very long bridge, over the forest</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-            //  Card 5 //
-            <li class="card">
-              <img
-                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="Tunnel with morning light"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Tunnel with morning light</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-            // Card 6 //
-            <li class="card">
-              <img
-                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Mountain house"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Mountain house</h2>
-                <button type="button" class="card__like-button">
-                  <img src="./images/like_icon.svg" alt="like button" />
-                </button>
-              </div>
-            </li>
-            -->
           </ul>
         </section>
       </main>
@@ -149,12 +64,9 @@
               type="button"
               class="modal__exit-button"
               id="profile__exit-button"
-            >
-              <img src="./images/exit_icon.svg" alt="exit_icon" />
-            </button>
+            ></button>
           </div>
           <form class="modal__form" id="edit-profile-form">
-            <!-- <fieldset class="modal__fieldset"> -->
             <label for="modal__input_name" class="modal__label"
               >Name
               <input
@@ -176,7 +88,6 @@
               />
             </label>
             <button type="submit" class="modal__save-button">Save</button>
-            <!-- </fieldset> -->
           </form>
         </div>
       </div>
@@ -189,12 +100,9 @@
               type="button"
               class="modal__exit-button"
               id="new-post__exit-button"
-            >
-              <img src="./images/exit_icon.svg" alt="exit_icon" />
-            </button>
+            ></button>
           </div>
           <form class="modal__form" id="profile-add-form">
-            <!-- <fieldset class="modal__fieldset"> -->
             <label for="modal__input_link" class="modal__label"
               >Image link</label
             >
@@ -216,9 +124,20 @@
               required
             />
             <button type="submit" class="modal__save-button">Save</button>
-            <!-- </fieldset> -->
           </form>
         </div>
+      </div>
+    </div>
+    <!-- Preview Modal -->
+    <div class="modal" id="card-preview-modal">
+      <div class="modal__preview_container">
+        <button
+          aria-label="close modal"
+          type="button"
+          class="modal__exit-button modal__preview_close"
+        ></button>
+        <img src="./images/Landscape.jpg" alt="" class="modal__preview_img" />
+        <p class="modal__preview_caption">Landscape</p>
       </div>
     </div>
     <script src="./scripts/index.js"></script>
