@@ -11,4 +11,4 @@ This is a webpage that will be for photosharing. The user will be able to have a
 
 # Link to github
 
-https://github.com/jdrkondus/se_project_spots/deployments/github-pages
+https://jdrkondus.github.io/se_project_spots/

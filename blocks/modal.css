@@ -56,15 +56,14 @@
   color: rgb(33, 33, 33);
   opacity: 40%;
   border: none;
-  border-style: none;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .modal__exit-button:hover {
   color: rgb(33, 33, 33);
   opacity: 100%;
-  cursor: pointer;
 }
 
 .modal__label {
@@ -75,7 +74,7 @@
   width: 100%;
   padding: 16px 12px;
   margin-bottom: 32px;
-  color: rgba(33, 33, 33);
+  color: rgba(33, 33, 33, 1);
   border-radius: 8px;
   border-color: rgba(33, 33, 33, 0.3);
   border-style: solid;
@@ -99,14 +98,14 @@
   color: rgb(252, 245, 229);
   border: none;
   min-width: 156px;
+  cursor: pointer;
 }
 
 .modal__save-button:hover {
   background-color: rgba(33, 33, 33, 0.8);
-  cursor: pointer;
 }
 
-.modal__preview_container {
+.modal__preview-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,7 +122,7 @@
   color: rgb(33, 33, 33);
 }
 
-.modal__preview_img {
+.modal__preview-img {
   display: block;
   border-radius: 8px;
   max-height: 80vh;
@@ -131,7 +130,7 @@
   width: 100%;
 }
 
-.modal__preview_caption {
+.modal__preview-caption {
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
@@ -140,15 +139,16 @@
   border-radius: 8px;
 }
 
-.modal__preview_close {
+.modal__preview-close {
   position: absolute;
   top: 0;
   right: -53px;
   background-image: url(../images/exit_icon._white.svg);
   background-color: transparent;
+  cursor: pointer;
 }
 
-.modal__preview_close:hover {
+.modal__preview-close:hover {
   opacity: 40%;
 }
 
@@ -164,20 +164,20 @@
     padding: 32px 18px;
   }
 
-  .modal__preview_container {
+  .modal__preview-container {
     border-radius: 4px;
   }
 
-  .modal__preview_img {
+  .modal__preview-img {
     display: flex;
     justify-self: center;
   }
 
-  .modal__preview_caption {
+  .modal__preview-caption {
     font-size: 16px;
   }
 
-  .modal__preview_close {
+  .modal__preview-close {
     right: 0;
     top: -53px;
   }

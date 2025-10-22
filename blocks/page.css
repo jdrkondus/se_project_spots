@@ -1,7 +1,7 @@
 .page {
   background-color: rgb(252, 245, 229);
-  font-family: "Poppins, Arial, Helvetica, Sans-serif";
-  justify-content: center;
+  font-family: "Poppins", Arial, Helvetica, Sans-serif;
+  /* justify-content: center; */
   min-height: 100vh;
 }
 
