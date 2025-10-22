@@ -35,9 +35,9 @@ const initialCards = [
   },
 ];
 
-const profileEditMdl = document.querySelector("#edit-profile-modal");
+const profileEditModal = document.querySelector("#edit-profile-modal");
 const profileEditBtn = document.querySelector(".profile__edit-button");
-const profileExitBtn = profileEditMdl.querySelector("#profile__exit-button");
+const profileExitBtn = profileEditModal.querySelector("#profile__exit-button");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileNameInput = document.querySelector("#modal__input_name");
@@ -45,19 +45,19 @@ const profileDescriptionInput = document.querySelector(
   "#modal__input_description"
 );
 const profileEditForm = document.querySelector("#edit-profile-form");
-const profileNewPostMdl = document.querySelector("#new-post-modal");
+const profileNewPostModal = document.querySelector("#new-post-modal");
 const profileAddBtn = document.querySelector(".profile__add-button");
-const profileNewPostExitBtn = profileNewPostMdl.querySelector(
+const profileNewPostExitBtn = profileNewPostModal.querySelector(
   "#new-post__exit-button"
 );
 const profileAddInput = document.querySelector("#modal__input_caption");
 const profileLinkInput = document.querySelector("#modal__input_link");
 const profileAddForm = document.querySelector("#profile-add-form");
 
-const previewMdl = document.querySelector("#card-preview-modal");
-const previewCloseBtn = previewMdl.querySelector(".modal__preview_close");
-const previewImg = previewMdl.querySelector(".modal__preview_img");
-const previewCaption = previewMdl.querySelector(".modal__preview_caption");
+const previewModal = document.querySelector("#modal__card-preview");
+const previewCloseBtn = previewModal.querySelector(".modal__preview-close");
+const previewImg = previewModal.querySelector(".modal__preview-img");
+const previewCaption = previewModal.querySelector(".modal__preview-caption");
 
 const cardTemplate = document
   .querySelector("#card__template")
@@ -74,28 +74,28 @@ function closeModal(modal) {
 }
 
 profileEditBtn.addEventListener("click", function () {
-  openModal(profileEditMdl);
+  openModal(profileEditModal);
   profileNameInput.value = profileNameEl.textContent;
   profileDescriptionInput.value = profileDescriptionEl.textContent;
 });
 
 profileExitBtn.addEventListener("click", function () {
-  closeModal(profileEditMdl);
+  closeModal(profileEditModal);
 });
 
 profileAddBtn.addEventListener("click", function () {
-  openModal(profileNewPostMdl);
+  openModal(profileNewPostModal);
 });
 
 profileNewPostExitBtn.addEventListener("click", function () {
-  closeModal(profileNewPostMdl);
+  closeModal(profileNewPostModal);
 });
 profileEditForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   profileNameEl.textContent = profileNameInput.value;
   profileDescriptionEl.textContent = profileDescriptionInput.value;
 
-  closeModal(profileEditMdl);
+  closeModal(profileEditModal);
 });
 
 initialCards.forEach(function (card) {
@@ -111,7 +111,9 @@ profileAddForm.addEventListener("submit", function (evt) {
   });
   cardList.prepend(newCardElement);
 
-  closeModal(profileNewPostMdl);
+  closeModal(profileNewPostModal);
+  this.reset(profileAddForm);
+  evt.target.removeEventListener(profileAddForm);
 });
 
 function getCardElement(data) {
@@ -130,17 +132,18 @@ function getCardElement(data) {
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
   cardDeleteBtn.addEventListener("click", function () {
     cardDeleteBtn.closest(".card").remove();
-    cardElement = null;
   });
 
   cardImage.addEventListener("click", function () {
     previewImg.src = data.link;
-    previewCaption.alt = data.name;
-    openModal(previewMdl);
+    previewImg.alt = data.name;
+    previewCaption.textContent = data.name;
+    openModal(previewModal);
   });
 
-  previewCloseBtn.addEventListener("click", function () {
-    closeModal(previewMdl);
-  });
   return cardElement;
 }
+
+previewCloseBtn.addEventListener("click", function () {
+  closeModal(previewModal);
+});
