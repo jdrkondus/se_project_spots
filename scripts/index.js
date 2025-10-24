@@ -113,7 +113,7 @@ profileAddForm.addEventListener("submit", function (evt) {
   });
   cardList.prepend(newCardElement);
   evt.target.reset();
-  disableButton(buttonElement);
+  disableButton(buttonElement, settings);
   closeModal(profileNewPostModal);
 });
 
