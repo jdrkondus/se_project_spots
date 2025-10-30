@@ -1,37 +1,64 @@
+import "./index.css";
+import { enableValidation, settings } from "../scripts/validation.js";
+
+const valThorens = new URL(
+  "../images/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  import.meta.url
+);
+
+const restaurantTerrace = new URL(
+  "../images/2-photo-by-ceiline-from-pexels.jpg",
+  import.meta.url
+);
+const outdoorCafe = new URL(
+  "../images/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  import.meta.url
+);
+
+const longBridge = new URL(
+  "../images/4-photo-by-maurice-laschet-from-pexels.jpg",
+  import.meta.url
+);
+
+const tunnelLight = new URL(
+  "../images/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  import.meta.url
+);
+
+const mountainHouse = new URL(
+  "../images/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  import.meta.url
+);
+
 const initialCards = [
   {
     name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: valThorens,
   },
 
   {
     name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+    link: restaurantTerrace,
   },
 
   {
     name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+    link: outdoorCafe,
   },
 
   {
     name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+    link: longBridge,
   },
 
   {
     name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+    link: tunnelLight,
   },
 
   {
     name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-
-  {
-    name: "Landscape",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    link: mountainHouse,
   },
 ];
 
@@ -165,3 +192,5 @@ function getCardElement(data) {
 previewCloseBtn.addEventListener("click", function () {
   closeModal(previewModal);
 });
+
+enableValidation(settings);
