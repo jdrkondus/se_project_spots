@@ -1,6 +1,7 @@
 import "./index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
+import { data } from "autoprefixer";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -11,6 +12,16 @@ const api = new Api({
 });
 
 api
+  .getUserInfo()
+  .then((data) => {
+    avatarImage.src = data.avatar;
+
+    profileNameEl.textContent = data.name;
+    profileDescriptionEl.textContent = data.about;
+  })
+  .catch(console.error);
+
+api
   .getAppInfo()
   .then((cards) => {
     cards.forEach((item) => {
@@ -18,6 +29,7 @@ api
       cardList.append(cardElement);
     });
   })
+
   .catch(console.error);
 
 // log the error to the console
@@ -45,7 +57,7 @@ const editAvatarForm = editAvatarModal.querySelector("#edit-avatar-form");
 const editAvatarCloseBtn = editAvatarModal.querySelector(
   "#avatar__exit-button"
 );
-
+const avatarImage = document.querySelector(".profile__avatar");
 const editAvatarInput = editAvatarModal.querySelector("#profile-avatar-input");
 const profileDeleteModal = document.querySelector("#profile-delete-modal");
 const profileDeleteForm = profileDeleteModal.querySelector(
@@ -118,13 +130,14 @@ function handleCardDeleteSubmit(evt) {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
-  evt.target.reset();
-  closeModal(editAvatarModal);
 
   api
     .editAvatarInfo(editAvatarInput.value)
     .then((data) => {
-      console.log(data);
+      avatarImage.src = data.avatar;
+
+      evt.target.reset();
+      closeModal(editAvatarModal);
     })
     .catch(console.error);
 }
@@ -166,28 +179,17 @@ profileEditForm.addEventListener("submit", function (evt) {
 profileAddForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
-  const newCardElement = getCardElement({
-    name: profileAddInput.value,
-    link: profileLinkInput.value,
+  const name = profileAddInput.value;
+  const link = profileLinkInput.value;
+
+  api.postNewCards(name, link).then((data) => {
+    const newCardElement = getCardElement(data);
+    cardList.prepend(newCardElement);
+
+    evt.target.reset();
+    disableButton(buttonElement, settings);
   });
-  cardList.prepend(newCardElement);
-  evt.target.reset();
-  disableButton(buttonElement, settings);
-  closeModal(profileNewPostModal);
-  api
-    .postNewCards(profileAddInput.value, profileLinkInput.value)
-    .then((data) => {
-      if (newCardElement) {
-        if (cardTitle) {
-          cardTitle.textContent = data.name;
-        }
-        if (cardImage) {
-          cardImage.src = data.link;
-          cardImage.alt = data.name;
-        }
-      }
-    })
-    .catch(console.error);
+  closeModal(profileNewPostModal).catch(console.error);
 });
 
 editAvatarBtn.addEventListener("click", function () {
