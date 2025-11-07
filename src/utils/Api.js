@@ -65,6 +65,13 @@ class Api {
       headers: this._headers,
     }).then(this._handleServerResponse);
   }
+  changeLikeStatus(id, isLiked) {
+    const method = isLiked ? "DELETE" : "PUT";
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: method,
+      headers: this._headers,
+    }).then(this._handleServerResponse);
+  }
 }
 
 export default Api;
