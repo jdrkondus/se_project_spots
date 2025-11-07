@@ -46,7 +46,7 @@ class Api {
         name,
         about,
       }),
-    }).then((res) => this._handleServerResponse);
+    }).then((res) => this._handleServerResponse(res));
   }
 
   editAvatarInfo(avatar) {
@@ -54,10 +54,9 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar:
-          "https://practicum-content.s3.us-west-1.amazonaws.com/frontend-developer/common/avatar.jpg",
+        avatar: avatar,
       }),
-    }).then((res) => this._handleServerResponse);
+    }).then((res) => this._handleServerResponse(res));
   }
 
   deleteCard(id) {
