@@ -119,6 +119,49 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+.modal__button-container {
+  display: flex;
+  justify-self: center;
+  gap: 20px;
+}
+
+.modal__delete-button {
+  background: rgba(255, 101, 101, 1);
+  padding: 18px 32px;
+  border-radius: 8px;
+  color: rgba(33, 33, 33, 1);
+  border: none;
+  min-width: 156px;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.modal__delete-button:hover {
+  background-color: rgba(255, 51, 51, 1);
+  color: rgba(33, 33, 33, 1);
+}
+
+.modal__cancel-button {
+  background-color: transparent;
+  border: 1px solid rgba(33, 33, 33, 1);
+  padding: 18px 32px;
+  border-radius: 8px;
+  color: rgba(33, 33, 33, 1);
+  min-width: 156px;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.modal__cancel-button:hover {
+  background-color: rgb(33, 33, 33);
+  padding: 18px 32px;
+  border-radius: 8px;
+  color: rgb(252, 245, 229);
+  border: none;
+  min-width: 156px;
+  margin-top: 32px;
+}
+
 .modal__preview-container {
   display: flex;
   flex-direction: column;
