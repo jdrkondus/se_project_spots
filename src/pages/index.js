@@ -8,7 +8,7 @@ let currentUserId = null;
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "f0ef6635-c105-4d3a-a000-6f501e464748", // Replace with your actual token
+    authorization: "24f88dd3-9566-4909-8682-90bbee9afa8e", // Replace with your actual token
     "Content-Type": "application/json",
   },
 });
@@ -24,7 +24,6 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = document.querySelector("#edit-profile-form");
 const profileNewPostModal = document.querySelector("#new-post-modal");
 const profileAddBtn = document.querySelector(".profile__add-button");
-const buttonElement = profileNewPostModal.querySelector(".modal__save-button");
 const profileNewPostExitBtn = profileNewPostModal.querySelector(
   "#new-post__exit-button"
 );
@@ -41,9 +40,7 @@ const profileDeleteModal = document.querySelector("#profile-delete-modal");
 const profileDeleteForm = profileDeleteModal.querySelector(
   "#profile-delete-form"
 );
-const deleteCancelBtn = profileDeleteModal.querySelector(
-  ".modal__cancel-button"
-);
+const deleteCancelBtn = profileDeleteModal.querySelector(".modal__save-button");
 
 const profileAddInput = document.querySelector("#modal__input_caption");
 const profileLinkInput = document.querySelector("#modal__input_link");
@@ -69,7 +66,7 @@ Promise.all([api.getUserInfo(), api.getAppInfo()])
     profileNameEl.textContent = data.name;
     profileDescriptionEl.textContent = data.about;
     cards.forEach((item) => {
-      const cardElement = getCardElement(item);
+      const cardElement = getCardElement(item, currentUserId);
       cardList.append(cardElement);
     });
   })
@@ -111,7 +108,7 @@ function handleLike(evt, _id) {
   const isLiked = cardLikeBtn.classList.contains("card__like-button-active");
   api
     .changeLikeStatus(_id, isLiked)
-    .then((data) => {
+    .then((_data) => {
       cardLikeBtn.classList.toggle("card__like-button-active");
     })
     .catch(console.error);
@@ -211,7 +208,7 @@ profileAddForm.addEventListener("submit", function (evt) {
   api
     .postNewCards(name, link)
     .then((data) => {
-      const newCardElement = getCardElement(data);
+      const newCardElement = getCardElement(data, currentUserId);
       cardList.prepend(newCardElement);
 
       evt.target.reset();
@@ -233,17 +230,14 @@ editAvatarCloseBtn.addEventListener("click", function () {
 
 editAvatarForm.addEventListener("submit", handleAvatarSubmit);
 
-function getCardElement(data) {
+function getCardElement(data, currentUserId) {
   console.log(data);
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-  const userHasLiked =
-    data.likes && Array.isArray(data.likes)
-      ? data.likes.some((like) => like._id === currentUserId)
-      : false;
+  const userHasLiked = data.isLiked;
 
   cardTitle.textContent = data.name;
   cardImage.src = data.link;

@@ -64,14 +64,13 @@ const setEventListener = (formElement, config) => {
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement, config);
-
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
   });
+  toggleButtonState(inputList, buttonElement, config);
 };
 
 export const enableValidation = (config) => {
