@@ -15,5 +15,7 @@ https://jdrkondus.github.io/se_project_spots/
 
 ## Project Pitch Video
 
-Check out [this video](https://www.loom.com/share/9d18239374ae45209733a6c0709cbcd1), where I describe my
+Check out [this video], where I describe my
 project and some challenges I faced while building it.
+
+[this video]: https://www.loom.com/share/9d18239374ae45209733a6c0709cbcd1
